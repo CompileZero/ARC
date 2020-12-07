@@ -5,6 +5,8 @@ import json
 import numpy as np
 import re
 
+# Atharva Kulkarni
+# 20231773
 ### YOUR CODE HERE: write at least three functions which solve
 ### specific tasks by transforming the input x and returning the
 ### result. Name them according to the task ID as in the three
