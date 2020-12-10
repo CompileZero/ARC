@@ -18,56 +18,109 @@ import copy
 
 
 def solve_dc1df850(x):
+    x1 = copy.deepcopy(x)
+    red, blue = 2, 1
+
+    Dy = [-1, 0, 1, 0]
+    Dx = [0, -1, 0, 1]
+    for i in range(len(x1)):
+        for j in range(len(x1[0])):
+            if x1[i, j] == red:
+                if j+1 < len(x1[0]):
+                    x1[i, j+1] = blue
+                if j-1 >= 0:
+                    x1[i, j-1] = blue
+                if i+1 < len(x1):
+                    x1[i+1, j] = blue
+                if i-1 >= 0:
+                    x1[i-1, j] = blue
+                if i-1 >= 0 and j-1 >= 0:
+                    x1[i-1, j-1] = blue
+                if i+1 < len(x1) and j+1 < len(x1[0]):
+                    x1[i+1, j+1] = blue
+                if i-1 >= 0 and j+1 < len(x1[0]):
+                    x1[i-1, j+1] = blue
+                if j-1 >= 0 and i+1 < len(x1):
+                    x1[i+1, j-1] = blue
+    return type(x1)
+
+
+def solve_93b581b8(x):
     x2 = copy.deepcopy(x)
-    # vb[2][3] = 5
     for i in range(len(x2)):
         for j in range(len(x2[0])):
-            if x2[i][j] == 2:
-                if j+1 < len(x2[0]):
-                    x2[i][j+1] = 1
-                if j-1 >= 0:
-                    x2[i][j-1] = 1
-                if i+1 < len(x2):
-                    x2[i+1][j] = 1
-                if i-1 >= 0:
-                    x2[i-1][j] = 1
-                if i-1 >= 0 and j-1 >= 0:
-                    x2[i-1][j-1] = 1
-                if i+1 < len(x2) and j+1 < len(x2[0]):
-                    x2[i+1][j+1] = 1
-                if i-1 >= 0 and j+1 < len(x2[0]):
-                    x2[i-1][j+1] = 1
-                if j-1 >= 0 and i+1 < len(x2):
-                    x2[i+1][j-1] = 1
+            if x2[i, j] != 0:
+                print("Hello")
     return x2
 
 
+def solve_3bd67248(x):
+    x3 = copy.deepcopy(x)
+    red, yellow = 2, 4
+    for i in range(1, len(x3[0])):
+        x3[len(x3) - 1, i] = yellow
+        x3[len(x3) - 1 - i, i] = red
+    print(x3)
+    return x3
+
+
+def solve_952a094c(x):
+    x4 = copy.deepcopy(x)
+    print(get_closed_area(x4))
+    print("Hello")
+    return x4
+
+
+def get_closed_area(arr):
+    # depth first search
+    green = 3
+    H, W = arr.shape
+    Dy = [0, -1, 0, 1]
+    Dx = [1, 0, -1, 0]
+    arr_padded = np.pad(arr, ((1, 1), (1, 1)), "constant", constant_values=0)
+    searched = np.zeros(arr_padded.shape, dtype=bool)
+    searched[0, 0] = True
+    q = [(0, 0)]
+    while q:
+        y, x = q.pop()
+        for dy, dx in zip(Dy, Dx):
+            y_, x_ = y+dy, x+dx
+            if not 0 <= y_ < H+2 or not 0 <= x_ < W+2:
+                continue
+            if not searched[y_][x_] and arr_padded[y_][x_] == 0:
+                q.append((y_, x_))
+                searched[y_, x_] = True
+    res = searched[1:-1, 1:-1]
+    res |= arr == green
+    return ~res
+
+
 def main():
-    # # Find all the functions defined in this file whose names are
-    # # like solve_abcd1234(), and run them.
+    # Find all the functions defined in this file whose names are
+    # like solve_abcd1234(), and run them.
 
-    # # regex to match solve_* functions and extract task IDs
-    # p = r"solve_([a-f0-9]{8})"
-    # tasks_solvers = []
-    # # globals() gives a dict containing all global names (variables
-    # # and functions), as name: value pairs.
-    # for name in globals():
-    #     m = re.match(p, name)
-    #     if m:
-    #         # if the name fits the pattern eg solve_abcd1234
-    #         ID = m.group(1) # just the task ID
-    #         solve_fn = globals()[name] # the fn itself
-    #         tasks_solvers.append((ID, solve_fn))
+    # regex to match solve_* functions and extract task IDs
+    p = r"solve_([a-f0-9]{8})"
+    tasks_solvers = []
+    # globals() gives a dict containing all global names (variables
+    # and functions), as name: value pairs.
+    for name in globals():
+        m = re.match(p, name)
+        if m:
+            # if the name fits the pattern eg solve_abcd1234
+            ID = m.group(1)  # just the task ID
+            solve_fn = globals()[name]  # the fn itself
+            tasks_solvers.append((ID, solve_fn))
 
-    # for ID, solve_fn in tasks_solvers:
-    #     # for each task, read the data and call test()
-    #     directory = os.path.join("..", "data", "training")
-    #     json_filename = os.path.join(directory, ID + ".json")
-    #     data = read_ARC_JSON(json_filename)
-    #     test(ID, solve_fn, data)
+    for ID, solve_fn in tasks_solvers:
+        # for each task, read the data and call test()
+        directory = os.path.join(".", "data", "training")
+        json_filename = os.path.join(directory, ID + ".json")
+        data = read_ARC_JSON(json_filename)
+        test(ID, solve_fn, data)
     data = read_ARC_JSON("data/training/dc1df850.json")
     # print(data)
-    test("dc1df850", solve_dc1df850, data)
+    # test("dc1df850", solve_dc1df850, data)
     # solve_dc1df850()
 
 
