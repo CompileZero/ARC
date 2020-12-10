@@ -5,6 +5,7 @@ import sys
 import json
 import numpy as np
 import re
+import copy
 
 # Atharva Kulkarni
 # 20231773
@@ -17,27 +18,28 @@ import re
 
 
 def solve_dc1df850(x):
-    for i in range(len(x)):
-        for j in range(len(x[0])):
-            print(x[i][j])
-            # if x[i][j] == 2:
-            #     if x[i][j+1]:
-            #         x[i][j+1] = 1
-            #     if x[i+1][j]:
-            #         x[i+1][j] = 1
-            #     if x[i+1][j+1]:
-            #         x[i+1][j+1] = 1
-            #     if x[i][j-1]:
-            #         x[i][j-1] = 1
-            #     if x[i-1][j]:
-            #         x[i-1][j] = 1
-            #     if x[i-1][j-1]:
-            #         x[i-1][j-1] = 1
-            # print("Passed")
-            # print(x[i][j+1])
-            # print("\n")
-        # print(x[0])
-    return x
+    x2 = copy.deepcopy(x)
+    # vb[2][3] = 5
+    for i in range(len(x2)):
+        for j in range(len(x2[0])):
+            if x2[i][j] == 2:
+                if j+1 < len(x2[0]):
+                    x2[i][j+1] = 1
+                if j-1 >= 0:
+                    x2[i][j-1] = 1
+                if i+1 < len(x2):
+                    x2[i+1][j] = 1
+                if i-1 >= 0:
+                    x2[i-1][j] = 1
+                if i-1 >= 0 and j-1 >= 0:
+                    x2[i-1][j-1] = 1
+                if i+1 < len(x2) and j+1 < len(x2[0]):
+                    x2[i+1][j+1] = 1
+                if i-1 >= 0 and j+1 < len(x2[0]):
+                    x2[i-1][j+1] = 1
+                if j-1 >= 0 and i+1 < len(x2):
+                    x2[i+1][j-1] = 1
+    return x2
 
 
 def main():
@@ -64,7 +66,7 @@ def main():
     #     data = read_ARC_JSON(json_filename)
     #     test(ID, solve_fn, data)
     data = read_ARC_JSON("data/training/dc1df850.json")
-    print(data)
+    # print(data)
     test("dc1df850", solve_dc1df850, data)
     # solve_dc1df850()
 
