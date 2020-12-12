@@ -45,13 +45,13 @@ def solve_dc1df850(x):
     return type(x1)
 
 
-def solve_93b581b8(x):
-    x2 = copy.deepcopy(x)
-    for i in range(len(x2)):
-        for j in range(len(x2[0])):
-            if x2[i, j] != 0:
-                print("Hello")
-    return x2
+# def solve_93b581b8(x):
+#     x2 = copy.deepcopy(x)
+#     for i in range(len(x2)):
+#         for j in range(len(x2[0])):
+#             if x2[i, j] != 0:
+#                 print("Hello")
+#     return x2
 
 
 def solve_3bd67248(x):
@@ -64,16 +64,21 @@ def solve_3bd67248(x):
     return x3
 
 
-def solve_952a094c(x):
-    x4 = copy.deepcopy(x)
-    print(get_closed_area(x4))
-    print("Hello")
-    return x4
+# def solve_952a094c(x):
+#     x4 = copy.deepcopy(x)
+#     print(get_closed_area(x4))
+#     print("Hello")
+#     return x4
 
 
 def solve_0520fde7(x):
-    x5 = copy.deepcopy(x)
-    print(x5)
+    red = 2
+    x5 = np.zeros((3, 3), dtype=int)
+    for i in range(len(x)):
+        for j in range(0, 3):
+            if x[i, j] == x[i, j+4] == 1:
+                x5[i, j] = red
+    return x5
 
 
 def get_closed_area(arr):
