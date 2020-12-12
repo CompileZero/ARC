@@ -6,6 +6,7 @@ import json
 import numpy as np
 import re
 import copy
+from scipy import ndimage
 
 # Atharva Kulkarni
 # 20231773
@@ -15,6 +16,37 @@ import copy
 # result. Name them according to the task ID as in the three
 # examples below. Delete the three examples. The tasks you choose
 # must be in the data/training directory, not data/evaluation.
+
+
+def solve_3bd67248(x):
+    red, yellow = 2, 4
+    x3 = copy.deepcopy(x)
+    for i in range(1, len(x3[0])):
+        x3[len(x3) - 1, i] = yellow
+        x3[len(x3) - 1 - i, i] = red
+    print(x3)
+    return x3
+
+
+def solve_0520fde7(x):
+    red = 2
+    x5 = np.zeros((3, 3), dtype=int)
+    for i in range(len(x)):
+        for j in range(0, 3):
+            if x[i, j] == x[i, j+4] == 1:
+                x5[i, j] = red
+    return x5
+
+
+def solve_5582e5ca(x):
+    # x6 = np.zeros((3, 3), dtype=int)
+    count = {el: 0 for el in range(10)}
+    print(count)
+    for i in range(len(x)):
+        for j in range(len(x[0])):
+            count[x[i, j]] += 1
+    most_frequent_color = list(count.keys())[list(count.values()).index(3)]
+    return np.full((3, 3), most_frequent_color)
 
 
 def solve_dc1df850(x):
@@ -42,7 +74,7 @@ def solve_dc1df850(x):
                     x1[i-1, j+1] = blue
                 if j-1 >= 0 and i+1 < len(x1):
                     x1[i+1, j-1] = blue
-    return type(x1)
+    return x1
 
 
 # def solve_93b581b8(x):
@@ -54,35 +86,11 @@ def solve_dc1df850(x):
 #     return x2
 
 
-def solve_3bd67248(x):
-    red, yellow = 2, 4
-    x3 = copy.deepcopy(x)
-    for i in range(1, len(x3[0])):
-        x3[len(x3) - 1, i] = yellow
-        x3[len(x3) - 1 - i, i] = red
-    print(x3)
-    return x3
-
-
 # def solve_952a094c(x):
 #     x4 = copy.deepcopy(x)
 #     print(get_closed_area(x4))
 #     print("Hello")
 #     return x4
-
-
-def solve_0520fde7(x):
-    red = 2
-    x5 = np.zeros((3, 3), dtype=int)
-    for i in range(len(x)):
-        for j in range(0, 3):
-            if x[i, j] == x[i, j+4] == 1:
-                x5[i, j] = red
-    return x5
-
-
-def solve_5582e5ca(x):
-    x6 = np.zeros((3, 3), dtype=int)
 
 
 def get_closed_area(arr):
