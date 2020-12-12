@@ -55,8 +55,8 @@ def solve_dc1df850(x):
 
 
 def solve_3bd67248(x):
-    x3 = copy.deepcopy(x)
     red, yellow = 2, 4
+    x3 = copy.deepcopy(x)
     for i in range(1, len(x3[0])):
         x3[len(x3) - 1, i] = yellow
         x3[len(x3) - 1 - i, i] = red
@@ -79,6 +79,10 @@ def solve_0520fde7(x):
             if x[i, j] == x[i, j+4] == 1:
                 x5[i, j] = red
     return x5
+
+
+def solve_5582e5ca(x):
+    x6 = np.zeros((3, 3), dtype=int)
 
 
 def get_closed_area(arr):
