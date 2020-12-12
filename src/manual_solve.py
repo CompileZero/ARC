@@ -71,8 +71,9 @@ def solve_952a094c(x):
     return x4
 
 
-def solve_0520fd37(x):
+def solve_0520fde7(x):
     x5 = copy.deepcopy(x)
+    print(x5)
 
 
 def get_closed_area(arr):
