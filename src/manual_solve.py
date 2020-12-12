@@ -71,6 +71,10 @@ def solve_952a094c(x):
     return x4
 
 
+def solve_0520fd37(x):
+    x5 = copy.deepcopy(x)
+
+
 def get_closed_area(arr):
     # depth first search
     green = 3
