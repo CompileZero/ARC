@@ -17,7 +17,7 @@ Summary/Reflection:
 
 The Multi-dimensional array problems from ARC were solved using pure python. The solutions have been written using a structural (procedural) programming approach and no machine learning or AI technique was used. Throughout the code, you can see the use of nested loops to traverse all elements of the array and perform the necessary operations on them. A new array is used to store and/or perform the operations and is returned by the function. 
 
-The 'copy' module is used to create a deepcopy of the input array to avoid operating on the same array. 2 Utility functions from the 'Numpy' module are used - np.zeros to create an array of 0's and np.full to fill the entire array with a particular value. Accessing of an element from the array is done using 'Arr[i, j]' instead of the typically used 'Arr[i][j]', as the former is significantly faster when dealing with huge multi-dimensional arrays.
+The 'copy' module is used to create a deepcopy of the input array to avoid operating on the same array. 2 utility functions from the 'Numpy' module are used - np.zeros to create an array of 0's and np.full to fill the entire array with a particular value. Accessing of an element from the array is done using 'Arr[i, j]' instead of the typically used 'Arr[i][j]', as the former is significantly faster when dealing with huge multi-dimensional arrays.
 """
 
 
