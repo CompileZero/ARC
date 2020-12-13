@@ -11,11 +11,8 @@ from scipy import ndimage
 # Atharva Kulkarni
 # 20231773
 # GitHub Link: https://github.com/CompileZero/ARC
-# YOUR CODE HERE: write at least three functions which solve
-# specific tasks by transforming the input x and returning the
-# result. Name them according to the task ID as in the three
-# examples below. Delete the three examples. The tasks you choose
-# must be in the data/training directory, not data/evaluation.
+
+#
 
 
 def solve_3bd67248(x):

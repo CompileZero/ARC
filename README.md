@@ -31,7 +31,7 @@ When looking at a task, a test-taker has access to inputs & outputs of the demon
 
 ## Usage of the `src/manual_solve.py` file
 
-- The `src/manual_solve.py` file contains hand-coded solutions for `3bd67248.json`, `0520fde7.json`,`5582e5ca.json` and `dc1df850.json`
+- The `src/manual_solve.py` file contains hand-coded solutions for `3bd67248.json`, `0520fde7.json`,`5582e5ca.json` and `dc1df850.json` chosen from the `data/training` directory
 - Directly run the `.py` file to see the output
 
 #### Requirements
