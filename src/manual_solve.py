@@ -8,9 +8,18 @@ import re
 import copy
 from scipy import ndimage
 
-# Name:- Atharva Kulkarni
-# Student ID:- 20231773
-# GitHub Link: https://github.com/CompileZero/ARC
+"""
+Name:- Atharva Kulkarni
+Student ID:- 20231773
+GitHub Link: https://github.com/CompileZero/ARC
+
+
+Summary/Reflection:
+
+No extra python libraries were used to solve the below functions. All the functions have been solved using a structural (procedural) programming approach method and no machine learning or AI technique was used.
+
+The functions loop through all the elements of the array and perform the necessary operations on them. 
+"""
 
 
 # From the bottom-most row and 2nd column from the left, add a horizontal yellow line and a diagonal red line to the top-right point of the matrix
@@ -87,14 +96,19 @@ def solve_dc1df850(x):
 # Results: All training and testing Grids are solved correctly
 def solve_e179c5f4(x):
     blue, cyan = 1, 8
+    # Create an array of the shape of the input and append cyan color at all positions
     x6 = np.full(x.shape, cyan)
+    # This list stores the value of counts 0 to 3, and number of diagonal lines printed
     count_iter = [0, 0]
     for i in range(len(x6)-1, -1, -1):
         x6[i, count_iter[0]] = blue
+        # If the next diagonal line is at an even position (0, 2, 4 etc), append diagonal elements from left to right
         if(count_iter[1] % 2 == 0):
             count_iter[0] += 1
+        # If the next diagonal line is at an odd position (1, 3, 5 etc), append diagonal elements from right to left
         else:
             count_iter[0] -= 1
+        # If count reaches the end or start of a row, increase the value of the number of diagonal lines printed
         if(count_iter[0] == len(x6[0]) - 1 or count_iter[0] == 0):
             count_iter[1] += 1
     return x6
