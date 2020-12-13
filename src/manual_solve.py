@@ -74,8 +74,10 @@ def solve_dc1df850(x):
 
 
 def solve_e179c5f4(x):
-    
-
+    x6 = copy.deepcopy(x)
+    for i in range(len(x6)):
+        for j in range(len(x6[0])):
+            x6[i, j]
 
     # def solve_93b581b8(x):
     #     x2 = copy.deepcopy(x)
