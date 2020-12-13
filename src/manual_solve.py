@@ -37,6 +37,7 @@ def solve_0520fde7(x):
     return x5
 
 
+# Given a 3x3 matrix, check for 3 occurences of a color and return a new matrix filled completely with that color
 def solve_5582e5ca(x):
     count = {el: 0 for el in range(10)}
     print(count)
@@ -47,6 +48,7 @@ def solve_5582e5ca(x):
     return np.full((3, 3), most_frequent_color)
 
 
+# Given a matrix, search all the red squares and added a blue border of 1 square thickness around the red square. Check for border conditions as well
 def solve_dc1df850(x):
     x1 = copy.deepcopy(x)
     red, blue = 2, 1
@@ -72,6 +74,7 @@ def solve_dc1df850(x):
     return x1
 
 
+# Given a matrix of m rows and n columns, return a matrix of the same shape with dark blue coloured zig-zag lines along the matrix
 def solve_e179c5f4(x):
     x6 = copy.deepcopy(x)
     for i in range(len(x6)):
