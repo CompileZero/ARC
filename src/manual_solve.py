@@ -12,7 +12,7 @@ from scipy import ndimage
 # 20231773
 # GitHub Link: https://github.com/CompileZero/ARC
 
-#
+# From the bottom-most row and 2nd column from the left, add a horizontal yellow line and a diagonal red line to the top-right point of the matrix
 
 
 def solve_3bd67248(x):
@@ -24,13 +24,15 @@ def solve_3bd67248(x):
     print(x3)
     return x3
 
+# Given 2 3x3 matrices joined together by a gray line, find out the common blue squares between the 2 matrices and append them as red squares in a new 3x3 matrice
+
 
 def solve_0520fde7(x):
-    red = 2
+    red, blue = 2, 1
     x5 = np.zeros((3, 3), dtype=int)
     for i in range(len(x)):
         for j in range(0, 3):
-            if x[i, j] == x[i, j+4] == 1:
+            if x[i, j] == x[i, j+4] == blue:
                 x5[i, j] = red
     return x5
 
