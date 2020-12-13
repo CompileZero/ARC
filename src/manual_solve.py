@@ -8,8 +8,8 @@ import re
 import copy
 from scipy import ndimage
 
-# Atharva Kulkarni
-# 20231773
+# Name:- Atharva Kulkarni
+# Student ID:- 20231773
 # GitHub Link: https://github.com/CompileZero/ARC
 
 # From the bottom-most row and 2nd column from the left, add a horizontal yellow line and a diagonal red line to the top-right point of the matrix
