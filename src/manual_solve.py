@@ -40,12 +40,14 @@ def solve_0520fde7(x):
 
 # Given a 3x3 matrix, check for 3 occurences of a color and return a new matrix filled completely with that color
 def solve_5582e5ca(x):
+    # Create an empty dictionary of keys: 0-9 with values 0, to store each color code as a key and number of occurences as its value
     count = {el: 0 for el in range(10)}
-    print(count)
     for i in range(len(x)):
         for j in range(len(x[0])):
             count[x[i, j]] += 1
+    # Get the key at which the value is 3
     most_frequent_color = list(count.keys())[list(count.values()).index(3)]
+    # Return an np.array filled with the above retrieved color
     return np.full((3, 3), most_frequent_color)
 
 
