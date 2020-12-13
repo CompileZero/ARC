@@ -53,10 +53,13 @@ def solve_5582e5ca(x):
 
 # Given a matrix, search all the red squares and added a blue border of 1 square thickness around the red square. Check for border conditions as well
 def solve_dc1df850(x):
+    red, blue = 2, 1
+    # Use deepcopy to avoid referencing to the same array
     x1 = copy.deepcopy(x)
     red, blue = 2, 1
     for i in range(len(x1)):
         for j in range(len(x1[0])):
+            # Check boundary conditions, if satisfied, then append a blue color at that position
             if x1[i, j] == red:
                 if j+1 < len(x1[0]):
                     x1[i, j+1] = blue
