@@ -14,6 +14,7 @@ from scipy import ndimage
 
 
 # From the bottom-most row and 2nd column from the left, add a horizontal yellow line and a diagonal red line to the top-right point of the matrix
+# Results: All training and testing Grids are solved correctly
 def solve_3bd67248(x):
     red, yellow = 2, 4
     # Use deepcopy to avoid referencing to the same array
@@ -27,6 +28,7 @@ def solve_3bd67248(x):
 
 
 # Given 2 3x3 matrices joined together by a gray line, find out the common blue squares between the 2 matrices and append them as red squares in a new 3x3 matrice
+# Results: All training and testing Grids are solved correctly
 def solve_0520fde7(x):
     red, blue = 2, 1
     x5 = np.zeros((3, 3), dtype=int)  # Create a 3x3 np.array of zeros
@@ -39,6 +41,7 @@ def solve_0520fde7(x):
 
 
 # Given a 3x3 matrix, check for 3 occurences of a color and return a new matrix filled completely with that color
+# Results: All training and testing Grids are solved correctly
 def solve_5582e5ca(x):
     # Create an empty dictionary of keys: 0-9 with values 0, to store each color code as a key and number of occurences as its value
     count = {el: 0 for el in range(10)}
@@ -52,11 +55,11 @@ def solve_5582e5ca(x):
 
 
 # Given a matrix, search all the red squares and added a blue border of 1 square thickness around the red square. Check for border conditions as well
+# Results: All training and testing Grids are solved correctly
 def solve_dc1df850(x):
     red, blue = 2, 1
     # Use deepcopy to avoid referencing to the same array
     x1 = copy.deepcopy(x)
-    red, blue = 2, 1
     for i in range(len(x1)):
         for j in range(len(x1[0])):
             # Check boundary conditions, if satisfied, then append a blue color at that position
@@ -81,6 +84,7 @@ def solve_dc1df850(x):
 
 
 # Given a matrix of m rows and n columns, return a matrix of the same shape with dark blue coloured zig-zag lines along the matrix
+# Results: All training and testing Grids are solved correctly
 def solve_e179c5f4(x):
     blue, cyan = 1, 8
     x6 = np.full(x.shape, cyan)
