@@ -18,7 +18,7 @@ Summary/Reflection:
 
 No extra python libraries were used to solve the below functions. All the functions have been solved using a structural (procedural) programming approach method and no machine learning or AI technique was used.
 
-The functions loop through all the elements of the array and perform the necessary operations on them. 
+The functions loop through all the elements of the array and perform the necessary operations on them. A new array is used to store and/or perform the operations and this new array is returned as a result. 
 """
 
 
