@@ -12,9 +12,8 @@ from scipy import ndimage
 # Student ID:- 20231773
 # GitHub Link: https://github.com/CompileZero/ARC
 
+
 # From the bottom-most row and 2nd column from the left, add a horizontal yellow line and a diagonal red line to the top-right point of the matrix
-
-
 def solve_3bd67248(x):
     red, yellow = 2, 4
     x3 = copy.deepcopy(x)
@@ -24,9 +23,8 @@ def solve_3bd67248(x):
     print(x3)
     return x3
 
+
 # Given 2 3x3 matrices joined together by a gray line, find out the common blue squares between the 2 matrices and append them as red squares in a new 3x3 matrice
-
-
 def solve_0520fde7(x):
     red, blue = 2, 1
     x5 = np.zeros((3, 3), dtype=int)
@@ -76,48 +74,18 @@ def solve_dc1df850(x):
 
 # Given a matrix of m rows and n columns, return a matrix of the same shape with dark blue coloured zig-zag lines along the matrix
 def solve_e179c5f4(x):
-    x6 = copy.deepcopy(x)
-    for i in range(len(x6)):
-        for j in range(len(x6[0])):
-            x6[i, j]
-
-    # def solve_93b581b8(x):
-    #     x2 = copy.deepcopy(x)
-    #     for i in range(len(x2)):
-    #         for j in range(len(x2[0])):
-    #             if x2[i, j] != 0:
-    #                 print("Hello")
-    #     return x2
-
-    # def solve_952a094c(x):
-    #     x4 = copy.deepcopy(x)
-    #     print(get_closed_area(x4))
-    #     print("Hello")
-    #     return x4
-
-
-def get_enclosed_area(arr):
-    # depth first search
-    green = 3
-    H, W = arr.shape
-    Dy = [0, -1, 0, 1]
-    Dx = [1, 0, -1, 0]
-    arr_padded = np.pad(arr, ((1, 1), (1, 1)), "constant", constant_values=0)
-    searched = np.zeros(arr_padded.shape, dtype=bool)
-    searched[0, 0] = True
-    q = [(0, 0)]
-    while q:
-        y, x = q.pop()
-        for dy, dx in zip(Dy, Dx):
-            y_, x_ = y+dy, x+dx
-            if not 0 <= y_ < H+2 or not 0 <= x_ < W+2:
-                continue
-            if not searched[y_][x_] and arr_padded[y_][x_] == 0:
-                q.append((y_, x_))
-                searched[y_, x_] = True
-    res = searched[1:-1, 1:-1]
-    res |= arr == green
-    return ~res
+    blue, cyan = 1, 8
+    x6 = np.full(x.shape, cyan)
+    count_iter = [0, 0]
+    for i in range(len(x6)-1, -1, -1):
+        x6[i, count_iter[0]] = blue
+        if(count_iter[1] % 2 == 0):
+            count_iter[0] += 1
+        else:
+            count_iter[0] -= 1
+        if(count_iter[0] == len(x6[0]) - 1 or count_iter[0] == 0):
+            count_iter[1] += 1
+    return x6
 
 
 def main():
