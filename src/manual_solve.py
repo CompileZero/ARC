@@ -19,9 +19,9 @@ def solve_3bd67248(x):
     # Use deepcopy to avoid referencing to the same array
     x3 = copy.deepcopy(x)
     for i in range(1, len(x3[0])):
-        # Append yellow for every element after the first element at the bottom-most row
+        # Append yellow for every position after the first position at the bottom-most row
         x3[len(x3) - 1, i] = yellow
-        # Append red for diagonal elements to the top-right corner
+        # Append red for diagonal positions till the top-right corner
         x3[len(x3) - 1 - i, i] = red
     return x3
 
