@@ -29,9 +29,10 @@ def solve_3bd67248(x):
 # Given 2 3x3 matrices joined together by a gray line, find out the common blue squares between the 2 matrices and append them as red squares in a new 3x3 matrice
 def solve_0520fde7(x):
     red, blue = 2, 1
-    x5 = np.zeros((3, 3), dtype=int)
+    x5 = np.zeros((3, 3), dtype=int)  # Create a 3x3 np.array of zeros
     for i in range(len(x)):
         for j in range(0, 3):
+            # If the element at j matches the element at j+4 and is blue, then append red to the above create np.array at i, j position
             if x[i, j] == x[i, j+4] == blue:
                 x5[i, j] = red
     return x5
