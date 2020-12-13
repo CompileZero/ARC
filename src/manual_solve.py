@@ -39,7 +39,6 @@ def solve_0520fde7(x):
 
 
 def solve_5582e5ca(x):
-    # x6 = np.zeros((3, 3), dtype=int)
     count = {el: 0 for el in range(10)}
     print(count)
     for i in range(len(x)):
@@ -52,9 +51,6 @@ def solve_5582e5ca(x):
 def solve_dc1df850(x):
     x1 = copy.deepcopy(x)
     red, blue = 2, 1
-
-    Dy = [-1, 0, 1, 0]
-    Dx = [0, -1, 0, 1]
     for i in range(len(x1)):
         for j in range(len(x1[0])):
             if x1[i, j] == red:
@@ -77,23 +73,26 @@ def solve_dc1df850(x):
     return x1
 
 
-# def solve_93b581b8(x):
-#     x2 = copy.deepcopy(x)
-#     for i in range(len(x2)):
-#         for j in range(len(x2[0])):
-#             if x2[i, j] != 0:
-#                 print("Hello")
-#     return x2
+def solve_e179c5f4(x):
+    
 
 
-# def solve_952a094c(x):
-#     x4 = copy.deepcopy(x)
-#     print(get_closed_area(x4))
-#     print("Hello")
-#     return x4
+    # def solve_93b581b8(x):
+    #     x2 = copy.deepcopy(x)
+    #     for i in range(len(x2)):
+    #         for j in range(len(x2[0])):
+    #             if x2[i, j] != 0:
+    #                 print("Hello")
+    #     return x2
+
+    # def solve_952a094c(x):
+    #     x4 = copy.deepcopy(x)
+    #     print(get_closed_area(x4))
+    #     print("Hello")
+    #     return x4
 
 
-def get_closed_area(arr):
+def get_enclosed_area(arr):
     # depth first search
     green = 3
     H, W = arr.shape
